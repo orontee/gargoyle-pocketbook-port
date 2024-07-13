@@ -115,6 +115,16 @@ SWTYP=user
 TOOLCHAIN_PATH=${BUILDROOT}/SDK-B288/usr
 TOOLCHAIN_PREFIX=arm-obreey-linux-gnueabi
 WORKSPACE=/srv/Jenkins/workspace/fwbuilder-ng-2
+
+# Required to cross-compile projects not using CMake
+CC=${CMAKE_C_COMPILER}
+CXX=${CMAKE_CXX_COMPILER}
+AR=${TOOLCHAIN_PATH}/bin/${TOOLCHAIN_PREFIX}-ar
+STRIP=${PB_STRIP}
+RANLIB=${TOOLCHAIN_PATH}/bin/${TOOLCHAIN_PREFIX}-ranlib
+PKGCONFIG=${TOOLCHAIN_PATH}/bin/pkg-config
+CFLAGS="-march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp"
+
 export BUILD_CFG
 export PB_CMAKE_FLAGS
 export PB_UNIX_DATETIME
@@ -237,3 +247,10 @@ export CMAKE_C_COMPILER
 export PB_TOUCHPANEL
 export PB_LCP_DRM
 export PB_USE_DROPBOX
+export CC
+export CXX
+export AR
+export STRIP
+export RANLIB
+export PKGCONFIG
+export CFLAGS

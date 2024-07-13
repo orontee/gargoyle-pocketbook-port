@@ -161,3 +161,6 @@ To run the application:
 
 - [The Interactive Fiction Database](https://ifdb.org/) huge catalog
   to test the build with
+- [MobileRead
+  discussion](https://www.mobileread.com/forums/showthread.php?t=358364)
+  at the origin of this project

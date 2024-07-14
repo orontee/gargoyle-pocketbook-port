@@ -2,5 +2,4 @@
 *
 # Except
 !.gitignore
-!crossfile_arm.ini.in
-!env_set.sh
+!*.sha256

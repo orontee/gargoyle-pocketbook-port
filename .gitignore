@@ -1,4 +1,5 @@
-/SDK-B288
-/env_set.sh
 /*.7z
+/.pc
+/SDK-B288
 /crossfile_arm.ini
+/env_set.sh

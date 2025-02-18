@@ -1,3 +1,4 @@
 [submodule "garglk"]
 	path = garglk
-	url = https://github.com/garglk/garglk.git
+	url = https://github.com/orontee/garglk.git
+	branch = pocketbook-support

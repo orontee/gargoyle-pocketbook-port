@@ -19,7 +19,7 @@ function unpack() {
 function configure_and_fix() {
     ./SDK-B288/bin/update_path.sh
 
-    patch env_set.sh patchs/extend-env_set.sh.patch
+    patch env_set.sh patches/extend-env_set.sh.diff
     ./env_set.sh
 
     PWDESC=$(echo ${PWD} | sed 's_/_\\/_g')

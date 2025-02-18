@@ -18,10 +18,11 @@ now, sorry.
 The build host is expected to be a Linux box. Examples are written
 with Debian 12 (Bookworm) in mind.
 
-Install build tools:
+Install build tools and populate source tree:
 
 ```sh
-$ sudo apt install cmake meson 7z build-essentials
+$ sudo apt install -y cmake meson 7zip build-essential
+$ git submodule update --init --recursive
 ```
 
 Download, unpack and patch PocketBook SDK, then activate SDK and
@@ -37,22 +38,20 @@ Finally build:
 
 ```sh
 $ cd garglk
-garglk$ git apply ../patchs/fix-missing-pair-constructor.patch
-garglk$ git apply ../patchs/fix-linkage.patch
 garglk$ cmake --fresh -B build -S . \
-    -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
-    -D CMAKE_BUILD_TYPE=Release \
-    -D QT_VERSION=5 \
-    -D WITH_LAUNCHER=OFF \
-    -D WITH_FREEDESKTOP=OFF \
-    -D INSTALL_DEV=ON \
     -D BUILD_SHARED_LIBS=OFF \
-    -D SOUND=OFF \
-    -D GCC_NO_CXX17=on \
-    -D CMAKE_INSTALL_PREFIX=/mnt/ext1/applications/garglk \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
     -D CMAKE_INSTALL_BINDIR=/mnt/ext1/applications/garglk \
     -D CMAKE_INSTALL_LIBDIR=/mnt/ext1/applications/garglk \
-    -D CMAKE_TOOLCHAIN_FILE=${BUILDROOT}/SDK-B288/share/cmake/arm_conf.cmake
+    -D CMAKE_INSTALL_PREFIX=/mnt/ext1/applications/garglk \
+    -D CMAKE_TOOLCHAIN_FILE=${BUILDROOT}/SDK-B288/share/cmake/arm_conf.cmake \
+    -D GARGLK_NO_CXX17=ON \
+    -D INSTALL_DEV=ON \
+    -D POCKETBOOK=ON \
+    -D SOUND=OFF \
+    -D WITH_FREEDESKTOP=OFF \
+    -D WITH_LAUNCHER=OFF
 garglk$ cmake --build build -j$(nproc)
 garglk$ cmake --build build -t install DESTDIR=dist
 ```

@@ -1,4 +1,4 @@
-# Gargoyle for PocketBook e-readers
+# Gargoyle Port for PocketBook e-readers
 
 A port of [Gargoyle](http://ccxvii.net/gargoyle/), the great
 interactive fiction player, to
@@ -40,7 +40,7 @@ Finally build:
 $ cd garglk
 garglk$ cmake --fresh -B build -S . \
     -D BUILD_SHARED_LIBS=OFF \
-    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_BUILD_TYPE=Debug \
     -D CMAKE_EXPORT_COMPILE_COMMANDS=ON \
     -D CMAKE_INSTALL_BINDIR=/mnt/ext1/applications/garglk \
     -D CMAKE_INSTALL_LIBDIR=/mnt/ext1/applications/garglk \
@@ -63,3 +63,4 @@ garglk$ cmake --build build -t install DESTDIR=dist
 - [MobileRead
   discussion](https://www.mobileread.com/forums/showthread.php?t=358364)
   at the origin of this project
+- [The Interactive Fiction Archive](http://www.ifarchive.org/) 

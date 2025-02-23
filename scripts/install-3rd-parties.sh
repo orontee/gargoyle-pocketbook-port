@@ -36,7 +36,7 @@ function fetch_and_compile_brotli() {
     wget -nv -O ${archive} ${archive_url} > /dev/null
     sha256sum -c ${archive}.sha256
 
-    unzip ${archive}
+    unzip -fo ${archive}
     rm ${archive}
 
     cd brotli-1.1.0
@@ -104,11 +104,11 @@ fetch_and_compile_libpng
 # The version provided by PocketBook SDK doesn't match FreeType
 # expectations
 
-fetch_and_compile_brotli
-fetch_and_compile_harfbuzz
+# fetch_and_compile_brotli
+# fetch_and_compile_harfbuzz
 # Not provided by PocketBook SDK
 
-fetch_and_compile_freetype
+# fetch_and_compile_freetype
 # The version provided by PocketBook SDK doesn't match garglk
 # expectations
 
